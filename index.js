@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+require('dotenv').config()
+const sequelize = require('./models')
 const bodyParser = require('body-parser')
 // const http = require('http');
 app.use(bodyParser.json());
@@ -8,7 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 const corsOptions = {
     // origin: 'http://ec2-65-0-86-209.ap-south-1.compute.amazonaws.com/',
-    origin: 'http://localhost:3000',
+    origin: 'ec2-18-188-229-124.us-east-2.compute.amazonaws.com',
     credentials: true,            //access-control-allow-credentials:true
     optionSuccessStatus: 200,
     exposedHeaders: ['x-auth-token'],
